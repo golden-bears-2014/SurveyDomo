@@ -1,7 +1,7 @@
 # shows list of posts and login button (posts are from newest to oldest just like craigslist
 get '/' do
-  #giant DOMO in erb
-  # erb :
+
+  erb :index
 end
 
 
