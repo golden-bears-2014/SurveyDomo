@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :comments
-  has_many :posts
   include BCrypt
+  has_many :user_answers
+  has_many :surveys
 
   def self.create(params)
     @user = self.new(params)

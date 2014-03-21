@@ -1,15 +1,4 @@
 <div class="container">
-  <h3>Posts</h3>
-  <% if @posts.length == 0 %>
-    <p>No posts at this time!</p>
-  <% else %>
-  <% @posts.each do |post|%>
-  <ul>
-    <li><a href="<%= post.post_url%>"> <%= post.post_title %></a> (<%= User.find(post.user_id).username %>)
-      <br/>
-      <a href="/posts/<%= post.id %>"><%= post.comments.count %> comments</a>
-    </li>
-  </ul>
-  <% end %>
-  <% end %>
+  <p>Welcome to SurveyDomo!</p>
+  <img src="https://camo.githubusercontent.com/401a0dfc0b312d9f2eb007d6d21ae76a6965d95d/687474703a2f2f7777772e7361646d756666696e2e6e65742f63686572727962616d2f67726170686963732f67616c6c6572792d646f6d6f2f646f6d6f3030342e6a7067">
 </div>
