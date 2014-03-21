@@ -26,10 +26,10 @@ get '/surveys/:id' do
 end
 
 post '/surveys/:id' do
-  p "these are the params from the submitted survey"
-  p params
-  #NEED AN UPDATED SURVEY MODEL TO PROCESS THIS SO THAT I CAN SEE WHAT PARAMS I GET
-  #AND WORK OFF THAT.
+  params.each_value do |choice_id|
+    @answer = Answer.create(choice_id: choice_id, user_id: @user.id, survey_id: params[:id])
+  end
+  redirect '/'
 end
 
 ######## SHOW RESULTS OF SURVEY
