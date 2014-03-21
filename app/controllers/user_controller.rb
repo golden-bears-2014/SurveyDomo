@@ -9,10 +9,10 @@ end
 
 #processes login page
 post '/sessions' do
-  p "login params"
+  p "data from sign in page"
+  p params
   p params[:user]
   authenticate_user(params[:user]) #should return
-  redirect "users/#{@user.id}"
 end
 
 #stops session
@@ -43,14 +43,14 @@ get '/users/:id' do
   erb :profile
 end
 
-#shows all the posts of the user (JQUERY)
-get '/users/:id/posts' do
-  @user = User.find(params[:id])
-  erb :user_posts
-end
+# #shows all the posts of the user (JQUERY)
+# get '/users/:id/posts' do
+#   @user = User.find(params[:id])
+#   erb :user_posts
+# end
 
-#shows all the comments of the user (JQUERY)
-get '/users/:id/comments' do
-  @user = User.find(params[:id])
-  erb :user_comments
-end
+# #shows all the comments of the user (JQUERY)
+# get '/users/:id/comments' do
+#   @user = User.find(params[:id])
+#   erb :user_comments
+# end
