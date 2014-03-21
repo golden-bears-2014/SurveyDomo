@@ -17,4 +17,20 @@ post '/surveys/new' do
   redirect '/surveys/:id' #MVP would just be survey_id
 end
 
+get '/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  erb :survey
+end
 
+post '/surveys/:id' do
+  #NEED AN UPDATED SURVEY MODEL TO PROCESS THIS SO THAT I CAN SEE WHAT PARAMS I GET
+  #AND WORK OFF THAT.
+end
+
+######## SHOW RESULTS OF SURVEY
+get '/results/:id' do
+  @survey = Survey.find(params[:id])
+  @answers = Answer.find_by_survey_id(params[:id])  
+  @questions = Survey.find(params[:id]).questions
+  erb :survey_results
+end

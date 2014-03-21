@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h2><%= @survey.name %></h2>
+
+  <form name="survey" action="/surveys/<%= @survey.id%>" method="post">
+    <%@survey.questions.each do |question|  %>
+    <h3><%=  question.content %></h3>
+      <% question.choices.each do |choice| %>
+        <input type="radio" name="<%= choice.id %>" value="<%= choice.content %>"><%= choice.content %><br>
+      <% end %>
+    <% end %>
+    <input type="submit" value="Submit">
+  </form>
+
+</div>

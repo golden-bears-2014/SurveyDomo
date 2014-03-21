@@ -2,17 +2,15 @@
   <h3>Hi, <%= @user.name %></h3>
   <p>Account created at:<%=  @user.created_at%></p>
   
-  <h4>Survey's Created:</h4>
+  <h4>Surveys Created:</h4>
 
   <% if @user.surveys.length == 0 %>
     <p>You've created no surveys yet!</p>
   <% else %>
     <ul>
   <% @user.surveys.each do |survey| %>
-      <li><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></li>
+      <li><a href="/results/<%= survey.id %>"><%= survey.name %></a></li>
   <% end  %>
   </ul>
   <% end %>
-
-
 </div>
