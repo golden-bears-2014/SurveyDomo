@@ -7,5 +7,12 @@ Christine, Nicholas, Germain, Janet, Michael
 
 Git Flow:
 
-MANDATORY: <a href="http://imgur.com/S5Or3e2"> GIT FLOW INSTRUCTIONS </a>
+MANDATORY:
 
+![Git Workflow](http://i.imgur.com/S5Or3e2.jpg)
+
+![MVP list](http://imgur.com/zAAibfR.jpg)
+
+![Schema](http://imgur.com/a1B02ZO.jpg)
+
+![Wireframes](http://imgur.com/YzAY9Ws.jpg)
