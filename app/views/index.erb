@@ -1,0 +1,15 @@
+<div class="container">
+  <h3>Posts</h3>
+  <% if @posts.length == 0 %>
+    <p>No posts at this time!</p>
+  <% else %>
+  <% @posts.each do |post|%>
+  <ul>
+    <li><a href="<%= post.post_url%>"> <%= post.post_title %></a> (<%= User.find(post.user_id).username %>)
+      <br/>
+      <a href="/posts/<%= post.id %>"><%= post.comments.count %> comments</a>
+    </li>
+  </ul>
+  <% end %>
+  <% end %>
+</div>
