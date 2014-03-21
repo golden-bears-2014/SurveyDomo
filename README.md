@@ -11,8 +11,8 @@ MANDATORY:
 
 ![Git Workflow](http://i.imgur.com/S5Or3e2.jpg)
 
-![MVP list](http://imgur.com/zAAibfR)
+![MVP list](http://imgur.com/zAAibfR.jpg)
 
-![Schema](http://imgur.com/a1B02ZO)
+![Schema](http://imgur.com/a1B02ZO.jpg)
 
-![Wireframes](http://imgur.com/YzAY9Ws)
+![Wireframes](http://imgur.com/YzAY9Ws.jpg)
