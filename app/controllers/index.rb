@@ -15,6 +15,9 @@ post '/surveys/new' do
   @survey = Survey.create(params)
   # Generate a sort of hash for the url by creating a random number via SecureRandom module
   redirect '/surveys/:id' #MVP would just be survey_id
+
+
+  # Question.create(content: params[:question_1]
 end
 
 
