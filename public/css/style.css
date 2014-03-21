@@ -50,11 +50,13 @@ nav{
 nav .brand h1{
   text-align: center;
   color: white;
-  /*margin-left: 45%;*/
-  margin: 0 auto;
+  margin-left: 45%;
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
   font-family: 'Orbitron', sans-serif;
   font-size: 65px;
   display: block;
+  /*line-height: 200%*/
   /*font-family: 'Stalinist One', cursive;*/
   /*font-size: 70px;*/
 }
