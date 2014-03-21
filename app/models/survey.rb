@@ -16,6 +16,7 @@ class Survey < ActiveRecord::Base
       end
     end
     s.save!
+    return s
 
   end
 

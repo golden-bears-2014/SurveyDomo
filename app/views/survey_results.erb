@@ -1,0 +1,12 @@
+<div class="container"> 
+  
+  <h3><%= @survey.name %></h3>
+
+  <% @questions.each do |question| %>
+    <%= question.content %>
+      <% question.choices each do |choice| %>
+      <p><%= choice.content %> <%= @answers.select {|answer| answer.choice_id == choice.id}.count %></p>
+      <% end %>
+  <% end %>
+
+</div>
