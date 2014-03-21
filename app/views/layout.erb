@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="/css/normalize.css">
-  
+
   <link rel="stylesheet" href="/css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Scada:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Orbitron:500' rel='stylesheet' type='text/css'>
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/script.js"></script>
 
-  <title></title>
+  <title>Survey DOMO</title>
 </head>
 <body>
 
   <nav>
-    <div class="brand"><a href="/">HackerNoobs</a>
+    <div class="brand">
+      <h1>Survey DOMO</h1>
     </div>
     <ul>
       <% if @user != nil %>
@@ -34,6 +39,16 @@
       <% end %>
     </ul>
   </nav>
+  <menu>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Create Survey</a></li>
+      <li><a href="#">My Surveys</a></li>
+      <li><a href="#">Edit Profile</a></li>
+      <!-- <li><a href="#">Contact</a></li> -->
+    </ul>
+    <br clear="all">
+  </menu>
 
   <%= yield %>
 </body>
