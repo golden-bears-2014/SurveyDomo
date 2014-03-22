@@ -2,10 +2,11 @@
   
   <h3><%= @survey.name %></h3>
 
-  <% @questions.each do |question| %>
-    <%= question.content %>
-      <% question.choices each do |choice| %>
-      <p><%= choice.content %> <%= @answers.select {|answer| answer.choice_id == choice.id}.count %></p>
+<% @questions.each do |question| %>
+    <h3 id="question_content"><%= question.content %></h3>
+      <% question.choices.each do |choice| %>
+      <p><%= choice.content %>
+      <%= @answers.select {|answer| answer.choice_id == choice.id}.length %></p>
       <% end %>
   <% end %>
 
