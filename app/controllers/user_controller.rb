@@ -39,7 +39,11 @@ end
 
 #shows user profile
 get '/users/:id' do
-  if session[:user_id] == params[:id]
+  # puts "this is the params id"
+  # puts  params[:id]
+  # puts "this is the session user id"
+  # p session[:user_id]
+  if session[:user_id].to_i == params[:id].to_i
     @user = User.find(params[:id])
     erb :profile
   else
