@@ -10,9 +10,7 @@ end
 
 #shows SUBMIT POST page, MUST be logged in
 get '/surveys/new' do
-  p @user
-  return erb :please_log_in if @user.id == nil
-  erb :new_survey 
+  @user.nil? ? (erb :please_log_in) : (erb :new_survey)
 end
 
 post '/surveys/new' do
