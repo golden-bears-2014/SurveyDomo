@@ -9,7 +9,8 @@
   <% else %>
     <ul>
   <% @user.surveys.each do |survey| %>
-      <li><a href="/results/<%= survey.id %>"><%= survey.name %></a></li>
+      <li><a href="/surveys/<%= survey.key %>"><%= survey.name %> </a><br/>
+      <a href="/results/<%= survey.id %>">See Results</a></li>
   <% end  %>
   </ul>
   <% end %>

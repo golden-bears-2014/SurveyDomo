@@ -5,7 +5,7 @@ class Survey < ActiveRecord::Base
 
   def self.create(params, user_id)
 
-    survey = Survey.new(name: params.shift[1], user_id: user_id)
+    survey = Survey.new(name: params.shift[1], user_id: user_id, key: SecureRandom.hex)
 
     while (params.length > 0) do
       question = Question.create(content: params.shift[1])
@@ -19,6 +19,7 @@ class Survey < ActiveRecord::Base
     survey.save!
     return survey
   end
+
 
 
 end
