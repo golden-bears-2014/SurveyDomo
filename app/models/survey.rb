@@ -3,9 +3,9 @@ class Survey < ActiveRecord::Base
   has_many :questions
 
 
-  def self.create(params)
+  def self.create(params, user_id)
 
-    survey = Survey.new(name: params.shift[1])
+    survey = Survey.new(name: params.shift[1], user_id: user_id)
 
     while (params.length > 0) do
       question = Question.create(content: params.shift[1])
