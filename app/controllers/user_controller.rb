@@ -9,8 +9,11 @@ end
 
 #processes login page
 post '/sessions' do
-  @error = "No matching log-in credentials." 
+  @error = "No matching log-in credentials."
   user = params.fetch("user")
+  puts "*"*100
+  puts "THIS IS THE USER"
+  p user
   @user = User.find_by_email(user[:email])
   return erb :sign_in if @user == nil
   verify_password(@user, user[:password_hash])

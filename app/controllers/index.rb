@@ -10,8 +10,7 @@ end
 
 #shows SUBMIT POST page, MUST be logged in
 get '/surveys/new' do
-  return erb :please_log_in if @user == nil
-  erb :new_survey 
+  @user.nil? ? (erb :please_log_in) : (erb :new_survey)
 end
 
 post '/surveys/new' do
@@ -21,7 +20,7 @@ post '/surveys/new' do
 end
 
 get '/surveys/:key' do
-  return erb :please_log_in if @user == nil 
+  return erb :please_log_in if @user == nil
   @survey = Survey.find_by_key(params[:key])
   erb :survey
 end
