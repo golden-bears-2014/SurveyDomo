@@ -16,15 +16,14 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-
   @survey = Survey.create(params, @user.id)
-  redirect "/surveys/#{@survey.id}"
+  redirect "/surveys/#{@survey.key}"
 
 end
 
-get '/surveys/:id' do
+get '/surveys/:key' do
   return erb :please_log_in if @user.id == nil
-  @survey = Survey.find(params[:id])
+  @survey = Survey.find_by_key(params[:key])
   erb :survey
 end
 

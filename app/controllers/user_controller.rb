@@ -42,7 +42,7 @@ end
 
 #shows user profile
 get '/users/:id' do
-  return erb :please_log_in if @user.id != params[:id]
+  return erb :please_log_in if @user.id != params[:id].to_i
   @user = User.find(params[:id])
   erb :profile
 end
