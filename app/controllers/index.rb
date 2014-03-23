@@ -10,11 +10,8 @@ end
 
 #shows SUBMIT POST page, MUST be logged in
 get '/surveys/new' do
-  if session[:user_id]
-    erb :new_survey
-  else
-    erb :please_log_in
-  end
+  return erb :please_log_in if @user.id != params[:id]
+  erb :new_survey 
 end
 
 post '/surveys/new' do
@@ -25,12 +22,9 @@ post '/surveys/new' do
 end
 
 get '/surveys/:id' do
-  if session[:user_id]
-    @survey = Survey.find(params[:id])
-    erb :survey
-  else
-    erb :please_log_in
-  end
+  return erb :please_log_in if @user.id != params[:id]
+  @survey = Survey.find(params[:id])
+  erb :survey
 end
 
 post '/surveys/:id' do
@@ -43,6 +37,7 @@ end
 ######## SHOW RESULTS OF SURVEY
 get '/results/:id' do
   @survey = Survey.find(params[:id])
+  return erb :please_log_in if @user.id != @survey.user_id
   @answers = Answer.where("survey_id = ?", params[:id])
   @questions = Survey.find(params[:id]).questions
   erb :survey_results
