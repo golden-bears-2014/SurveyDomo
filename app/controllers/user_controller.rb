@@ -46,3 +46,18 @@ get '/users/:id' do
   @user = User.find(params[:id])
   erb :profile
 end
+
+#edit profile
+get '/users/:id/edit' do
+  return erb :sign_in if @user == nil
+  return erb :please_log_in if @user.id != params[:id].to_i
+  @user = User.find(params[:id])
+  erb :edit_user
+end
+
+#update and show profile
+put '/users/:id/edit' do
+  @user = User.find(params[:id])
+  @user.update_attributes(params[:user])
+  redirect "users/#{@user.id}"
+end

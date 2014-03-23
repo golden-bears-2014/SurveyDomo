@@ -47,8 +47,9 @@
       <% if @user == nil %>
       <li><a href="/">My Surveys</a></li>
       <% end %>
-      <li><a href="#">Edit Profile</a></li>
-      <!-- <li><a href="#">Contact</a></li> -->
+      <% if @user != nil %>
+      <li><a href="/users/<%= @user.id %>/edit">Edit Profile</a></li>
+      <% end %>
     </ul>
     <br clear="all">
   </menu>
