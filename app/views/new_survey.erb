@@ -1,31 +1,30 @@
+<div class="container">
 <h1>Fill in the below to create your Survey</h1>
 
 
 
 <form name="survey" action="/surveys/new" method="post" class="Question">
-  
+
 
   Survey Name: <input type="text" name="survey_name"><br>
-
-  Question 1: <input type="text" name="question1"><br>
-  Choice 1: <input type="text" name="choices1[choice1]">
-  Choice 2: <input type="text" name="choices1[choice2]">
-  Choice 3: <input type="text" name="choices1[choice3]">
-  Choice 4: <input type="text" name="choices1[choice4]"><br>
-
-  Question 2: <input type="text" name="question2"><br>
-  Choice 1: <input type="text" name="choices2[choice1]">
-  Choice 2: <input type="text" name="choices2[choice2]">
-  Choice 3: <input type="text" name="choices2[choice3]">
-  Choice 4: <input type="text" name="choices2[choice4]"><br>
-
-  Question 3: <input type="text" name="question3"><br>
-  Choice 1: <input type="text" name="choices3[choice1]">
-  Choice 2: <input type="text" name="choices3[choice2]">
-  Choice 3: <input type="text" name="choices3[choice3]">
-  Choice 4: <input type="text" name="choices3[choice4]"><br>
-
-<input type="submit" value="Submit">
+  <div class="question-list">
+    <div class="question-choices">
+      Question: <input type="text" name="question1">
+      Choice 1: <input type="text" name="q1c1">
+      Choice 2: <input type="text" name="q1c2">
+      Choice 3: <input type="text" name="q1c3">
+      Choice 4: <input type="text" name="q1c4">
+    </div>
+  </div>
+  <button class="add-question">Add Question</button>
+  <input type="submit" value="Submit">
 </form>
+</div>
 
-
+<div class="question-choices-template">
+  Question: <input type="text" name="questionX">
+  Choice 1: <input type="text" name="qXc1">
+  Choice 2: <input type="text" name="qXc2">
+  Choice 3: <input type="text" name="qXc3">
+  Choice 4: <input type="text" name="qXc4">
+</div>

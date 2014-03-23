@@ -14,10 +14,10 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  @survey = Survey.create(params)
-  # Generate a sort of hash for the url by creating a random number via SecureRandom module
-  @user.surveys << @survey
-  redirect "/surveys/#{@survey.id}" #MVP would just be survey_id
+  p params
+
+  # @survey = Survey.create(name: params[:survey_name])
+  # erb :_add_question
 end
 
 get '/surveys/:id' do
@@ -35,7 +35,7 @@ end
 ######## SHOW RESULTS OF SURVEY
 get '/results/:id' do
   @survey = Survey.find(params[:id])
-  @answers = Answer.find_by_survey_id(params[:id])  
+  @answers = Answer.find_by_survey_id(params[:id])
   @questions = Survey.find(params[:id]).questions
   erb :survey_results
 end

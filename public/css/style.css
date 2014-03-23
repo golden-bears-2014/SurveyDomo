@@ -165,3 +165,7 @@ form.quirks {
   background:none;
   font-weight: :bold;
 }
+
+.question-choices-template {
+  display: none;
+}
