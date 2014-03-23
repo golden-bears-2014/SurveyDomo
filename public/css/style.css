@@ -166,6 +166,17 @@ form.quirks {
   font-weight: :bold;
 }
 
+
 .question-choices-template {
   display: none;
+}
+
+.graph {
+  width: 60%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+
 }

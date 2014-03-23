@@ -1,12 +1,24 @@
+
 <div class="container"> 
-  
-  <h3><%= @survey.name %></h3>
+
+  <script type="text/javascript">
+  var answers = <%= @answers.to_json %>
+  </script>
+
+<h2><%= @survey.name %> Results</h2>
 
   <% @questions.each do |question| %>
-    <%= question.content %>
-      <% question.choices each do |choice| %>
-      <p><%= choice.content %> <%= @answers.select {|answer| answer.choice_id == choice.id}.count %></p>
-      <% end %>
+    <script type="text/javascript">
+    var question = <%= question.to_json %>
+    var choices = <%= question.choices.to_json %>
+    printGraph(question, answers, choices);
+    </script>
   <% end %>
+ 
 
 </div>
+
+
+
+
+

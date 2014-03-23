@@ -17,7 +17,7 @@ end
 
 #stops session
 delete '/sessions/:id' do #they user id
-  session[:user_id] = nil
+  session.clear
   redirect '/'
 end
 
@@ -39,8 +39,16 @@ end
 
 #shows user profile
 get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :profile
+  # puts "this is the params id"
+  # puts  params[:id]
+  # puts "this is the session user id"
+  # p session[:user_id]
+  if session[:user_id].to_i == params[:id].to_i
+    @user = User.find(params[:id])
+    erb :profile
+  else
+    erb :please_log_in
+  end
 end
 
 # #shows all the posts of the user (JQUERY)
