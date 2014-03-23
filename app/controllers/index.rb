@@ -34,8 +34,8 @@ get '/surveys/:id' do
 end
 
 post '/surveys/:id' do
-  params.each_value do |choice_id|
-    @answer = Answer.create(choice_id: choice_id, user_id: @user.id, survey_id: params[:id])
+  params.each_value do |choice_index|
+    @answer = Answer.create(choice_id: choice_index, user_id: @user.id, survey_id: params[:id])
   end
   redirect '/'
 end
@@ -43,7 +43,7 @@ end
 ######## SHOW RESULTS OF SURVEY
 get '/results/:id' do
   @survey = Survey.find(params[:id])
-  @answers = Answer.find_by_survey_id(params[:id])
+  @answers = Answer.where("survey_id = ?", params[:id])
   @questions = Survey.find(params[:id]).questions
   erb :survey_results
 end
