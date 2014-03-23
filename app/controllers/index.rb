@@ -18,10 +18,10 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  @survey = Survey.create(params)
-  # Generate a sort of hash for the url by creating a random number via SecureRandom module
-  @user.surveys << @survey
-  redirect "/surveys/#{@survey.id}" #MVP would just be survey_id
+
+  @survey = Survey.create(params, @user.id)
+  redirect "/surveys/#{@survey.id}"
+
 end
 
 get '/surveys/:id' do
