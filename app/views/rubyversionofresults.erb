@@ -1,0 +1,27 @@
+<!----- THIS IS THE RUBY THAT I TRANSLATED INTO JAVASCRIPT TO RENDER THE GRAPH RESULTS. PLEASE KEEP THIS FOR THE PRESENTATION
+
+<% @questions.each do |question| %>
+
+  <% @choice_content = [] %>  
+  <% @answer_count =[] %>
+  <% question.choices.each do |choice| %>
+      <% @choice_content << choice.content %>
+      <%@answer_count << @answers.select {|answer| answer.choice_id == choice.id}.length %>
+  <% end %>
+
+  <script type="text/javascript">
+  var question = <%= question.to_json %>
+  var answerCount = <%= @answer_count.to_json %>
+  var choiceContent = <%= @choice_content.to_json %>  
+  </script>
+
+  <div id="graph<%= question.id%>" class="graph">
+  </div>
+  <br/><br/>
+  <script  type="text/javascript">
+  printGraph(question, choiceContent, answerCount);
+  </script>
+
+<% end %>
+
+----!>
