@@ -20,7 +20,7 @@ post '/surveys/new' do
 end
 
 get '/surveys/:key' do
-  return erb :please_log_in if @user.id == nil
+  return erb :please_log_in if @user == nil
   @survey = Survey.find_by_key(params[:key])
   erb :survey
 end
