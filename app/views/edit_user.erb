@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Update your profile!</h1>
+
+
+<form action="/users/<%= @user.id%>/edit" method="post">
+<input type="hidden" name="_method" value="put" />
+  <p>Name: <input name="user[name]" type="text" value="<%= @user.name %>"> </p>
+  <p>Email: <input name="user[email]" type="text" value="<%= @user.email %>"> </p>
+  <p>Note: You cannot change your password and username at this time. Sorry!</p>
+  <p><input type="submit" value="Update my Profile!"></p>
+</form>
+
+  <br/><br/>
+  
+</div>
