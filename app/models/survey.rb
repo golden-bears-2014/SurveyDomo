@@ -2,22 +2,23 @@ class Survey < ActiveRecord::Base
   belongs_to :user
   has_many :questions
 
-  def self.create(params)
 
-    p params["survey_name"]
+  def self.create(params, user_id)
 
-    s = self.new
-    s.name = (params["survey_name"])
-    s.save
-    3.times do |index|
-      s.questions << Question.create(content: params["question#{index+1}"])
-      4.times do |cindex|
-        s.questions.all[index].choices << Choice.create(content: params["choices#{index+1}"]["choice#{cindex+1}"])
+    survey = Survey.new(name: params.shift[1], user_id: user_id)
+
+    while (params.length > 0) do
+      question = Question.create(content: params.shift[1])
+      survey.questions << question
+      for i in 1..4 do
+        # shift off 1 comment and then shovel into the question created above
+        question.choices << Choice.create(content: params.shift[1])
       end
-    end
-    s.save!
-    return s
 
+    end
+    survey.save!
+    return survey
   end
+
 
 end
