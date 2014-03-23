@@ -16,8 +16,9 @@ end
 post '/surveys/new' do
   p params
 
-  # @survey = Survey.create(name: params[:survey_name])
-  # erb :_add_question
+  @survey = Survey.create(params)
+  p @survey.id
+  redirect "/surveys/#{@survey.id}"
 end
 
 get '/surveys/:id' do

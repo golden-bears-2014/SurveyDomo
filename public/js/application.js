@@ -23,10 +23,11 @@ $(document).ready(function() {
       // alert('Add was clicked');
       var next_num = $('.question-choices').length + 1
       $('.question-choices-template input:first').attr('name',"question" + next_num)
-
+      var i = 1;
       $.each($('.question-choices-template').children(), function(index, value){
         if(index > 0){
-
+          value.name = 'q' + next_num + 'c' + i;
+          i++
         }
 
       });
