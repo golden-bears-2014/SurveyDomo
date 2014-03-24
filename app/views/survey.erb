@@ -6,7 +6,7 @@
     <%@survey.questions.each do |question|  %>
     <h3><%=  question.content %></h3>
       <% question.choices.each do |choice| %>
-        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>"><%= choice.content %><br>
+        <input type="radio" name="<%= question.id %>" value="<%= choice.id %>">   <%= choice.content %><br>
       <% end %>
     <% end %>
     <input type="submit" value="Submit">

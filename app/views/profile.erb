@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Hi, <%= @user.name %></h1>
+  <h1>Hi, <%= @user.name %></h1><br><br>
   <p>Account created at: <%=  @user.created_at%></p>
   
   <h4>Surveys Created:</h4>
@@ -7,11 +7,11 @@
   <% if @user.surveys.length == 0 %>
     <p>You've created no surveys yet!</p>
   <% else %>
-    <ul>
+    <!-- <ul> -->
   <% @user.surveys.each do |survey| %>
-      <li><a href="/surveys/<%= survey.key %>"><%= survey.name %> </a><br/>
-      <a href="/results/<%= survey.id %>">See Results</a></li>
+      <a href="/surveys/<%= survey.key %>"><%= survey.name %> </a><br/>
+      <a href="/results/<%= survey.id %>">See Results</a><br><br>
   <% end  %>
-  </ul>
+  <!-- </ul> -->
   <% end %>
 </div>
