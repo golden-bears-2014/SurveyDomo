@@ -166,6 +166,7 @@ menu li{
 
 menu li a{
   color: white;
+  margin-left: 6px;
   font-family: 'Scada', sans-serif;
   text-decoration: none;
   text-shadow: 0px 3px 0px black,
