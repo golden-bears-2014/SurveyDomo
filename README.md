@@ -3,7 +3,7 @@ SurveyDomo
 
 <img src="http://www.sadmuffin.net/cherrybam/graphics/gallery-domo/domo004.jpg">
 
-![NOW](http://imgur.com/I8K0eGO)
+[Imgur](http://i.imgur.com/I8K0eGO.png)
 
 Christine, Nicholas, Germain, Janet, Michael
 
