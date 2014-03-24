@@ -5,7 +5,7 @@
   var answers = <%= @answers.to_json %>
   </script>
 
-<h2><%= @survey.name %> Results</h2>
+<h1><%= @survey.name %> Results</h1>
 
   <% @questions.each do |question| %>
     <script type="text/javascript">

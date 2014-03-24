@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2><%= @survey.name %></h2>
+  <h1><%= @survey.name %></h1>
 
   <form name="survey" action="/surveys/<%= @survey.id%>" method="post">
     <%@survey.questions.each do |question|  %>

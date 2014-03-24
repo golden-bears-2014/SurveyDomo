@@ -24,10 +24,10 @@
          <li><a href="/users/<%=@user.id%>"><%= @user.name%></a>
         </li>
         <li>
-          <form id="sign-out" action="/sessions/<%= @user.id %>" method="post">
+<!--           <form id="sign-out" action="/sessions/<%= @user.id %>" method="post">
             <input name="_method" type="hidden" value="delete" />
             <input type="submit" value="Sign Out">
-          </form>
+          </form> -->
         </li>
 
       <% else %>
@@ -56,4 +56,14 @@
 
   <%= yield %>
 </body>
+
+
+<footer>
+  <% if @user != nil %>
+              <form id="sign-out" action="/sessions/<%= @user.id %>" method="post">
+                <input name="_method" type="hidden" value="delete" />
+                <input type="submit" value="Sign Out">
+              </form>
+  <% end %>
+</footer>
 </html>
