@@ -1,7 +1,8 @@
 SurveyDomo
+<img src="http://i.imgur.com/I8K0eGO.png" title="Hosted by imgur.com" />
 ==========
 
-<img src="http://i.imgur.com/I8K0eGO.png" title="Hosted by imgur.com" />
+
 
 <img src="http://www.sadmuffin.net/cherrybam/graphics/gallery-domo/domo004.jpg">
 
