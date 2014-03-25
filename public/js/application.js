@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     $(".add-question").on('click', function(event){
+      // #CR nice work, but if you use arrays in your params this becomes much cleaner / not necessary
       event.preventDefault();
       // alert('Add was clicked');
       var next_num = $('.question-choices').length + 1
@@ -21,6 +22,7 @@ $(document).ready(function() {
 
 
 })
+// #CR explore refactoring this into objects.
 
 var printGraph = function(question, answers, choices){
 

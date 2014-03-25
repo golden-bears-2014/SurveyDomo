@@ -7,6 +7,7 @@
     <h3><%=  question.content %></h3>
       <% question.choices.each do |choice| %>
         <input type="radio" name="<%= question.id %>" value="<%= choice.id %>">  <%= choice.content %><br>
+        <!-- #CR use arrays in params -->
       <% end %>
     <% end %>
     <input type="submit" value="Submit">

@@ -9,13 +9,15 @@ helpers do
 
   def verify_password(user, new_password)
     # p "checking password"
-    if user.password == new_password
+    user.password == new_password
       # p "password verified!"
-    else
-      @error = "No matching log-in credentials."
-      erb :sign_in
-    end
-  end
+
+  #CR separate view.
+  #   else
+  #     @error = "No matching log-in credentials."
+  #     erb :sign_in
+  #   end
+   end
 
 end
 

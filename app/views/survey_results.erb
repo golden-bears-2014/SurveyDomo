@@ -1,5 +1,5 @@
 
-<div class="container"> 
+<div class="container">
 
   <script type="text/javascript">
   var answers = <%= @answers.to_json %>
@@ -8,13 +8,14 @@
 <h1><%= @survey.name %> Results</h1>
 
   <% @questions.each do |question| %>
+  <!-- #CR explore sending back a json object with this data formatted in it instead of doing it in erb -->
     <script type="text/javascript">
     var question = <%= question.to_json %>
     var choices = <%= question.choices.to_json %>
     printGraph(question, answers, choices);
     </script>
   <% end %>
- 
+
 
 </div>
 

@@ -1,3 +1,4 @@
+#CR a good start at tests, refactor with a let block and add more tests (at least one for each route)
 require_relative 'spec_helper'
 
 describe "IndexController Tests" do
@@ -22,7 +23,7 @@ describe "IndexController Tests" do
       end
 
       it "should redirect when user logs in" do
-        post "/sessions", { :user => { :name => 'bob', :email => 'bob@example.com', :password_hash => 'test1234' } }
+        post "/sessions", { :user => { :name => 'bob', :email => 'bob@example.com', :password => 'test1234' } }
         # response.should redirect_to("/admin")
         # response.code.should eq("302")
         # get "/admin/account"
@@ -32,7 +33,7 @@ describe "IndexController Tests" do
   end
 
       it "should redirect when survey is created" do
-        post "/sessions", { :user => { :name => 'bob', :email => 'bob@example.com', :password_hash => 'test1234' } }
+        post "/sessions", { :user => { :name => 'bob', :email => 'bob@example.com', :password => 'test1234' } }
         post "/surveys/new", { :name => 'awesome survey'}
         # response.should redirect_to("/admin")
         # response.code.should eq("302")

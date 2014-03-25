@@ -18,6 +18,7 @@
     </div>
     <ul>
       <% if @user != nil %>
+      <!-- use the current user helper mtehod -->
   <!--       <li>
           <a href="/users/<%=@user.id%>/posts/new">Submit Post</a>
         </li> -->
@@ -38,21 +39,22 @@
   </nav>
 
     <menu>
+      <!-- #CR create two partials for logged in and not logged in menus -->
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/surveys/new">Create Survey</a></li>
-      <% if @user != nil %>
-      <li><a href="/users/<%= @user.id%>">My Surveys</a></li>
+      <% if current_user %>
+      <li><a href="/users/<%= current_user.id%>">My Surveys</a></li>
       <% end %>
-      <% if @user == nil %>
+      <% if !current_user %>
       <li><a href="/">My Surveys</a></li>
       <% end %>
-      <% if @user != nil %>
-      <li><a href="/users/<%= @user.id %>/edit">Edit Profile</a></li>
+      <% if current_user %>
+      <li><a href="/users/<%= current_user.id %>/edit">Edit Profile</a></li>
       <% end %>
       <li>
-      <% if @user != nil %>
-              <form id="sign-out" action="/sessions/<%= @user.id %>" method="post">
+      <% if current_user %>
+              <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
                 <input name="_method" type="hidden" value="delete" />
                 <input type="submit" value="Sign Out">
               </form>

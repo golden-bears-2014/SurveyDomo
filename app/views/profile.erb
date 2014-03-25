@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Hi, <%= @user.name %></h1><br><br>
+  <!-- use current user helper method instead of @user -->
   <p>Account created at: <%=  @user.created_at%></p>
-  
+
   <h4>Surveys Created:</h4>
 
   <% if @user.surveys.length == 0 %>
