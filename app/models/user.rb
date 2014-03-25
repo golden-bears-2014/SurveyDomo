@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :user_answers
   has_many :surveys
 
+#CR add validations
+
   def self.create(params)
     @user = self.new(params)
     @user.password = params[:password_hash]

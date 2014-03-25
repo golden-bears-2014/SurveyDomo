@@ -10,7 +10,7 @@ class Survey < ActiveRecord::Base
     while (params.length > 0) do
       question = Question.create(content: params.shift[1])
       survey.questions << question
-      for i in 1..4 do
+      for i in 1..4 do  #CR modify to work with any numebr of choices.
         # shift off 1 comment and then shovel into the question created above
         question.choices << Choice.create(content: params.shift[1])
       end

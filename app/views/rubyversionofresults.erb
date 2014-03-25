@@ -2,7 +2,7 @@
 
 <% @questions.each do |question| %>
 
-  <% @choice_content = [] %>  
+  <% @choice_content = [] %>
   <% @answer_count =[] %>
   <% question.choices.each do |choice| %>
       <% @choice_content << choice.content %>
@@ -12,7 +12,7 @@
   <script type="text/javascript">
   var question = <%= question.to_json %>
   var answerCount = <%= @answer_count.to_json %>
-  var choiceContent = <%= @choice_content.to_json %>  
+  var choiceContent = <%= @choice_content.to_json %>
   </script>
 
   <div id="graph<%= question.id%>" class="graph">

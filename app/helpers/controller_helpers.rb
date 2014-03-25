@@ -4,22 +4,20 @@ helpers do
   end
 
   def current_user
-    if session
-      @user = User.select {|user| user.id == session[:user_id]}.first
-    else
-      @user = nil
-    end
+      @current_user = User.find(session[:user_id]) if session[:user_id]
   end
 
-  def verify_password(user, password_hash)
-    p "checking password"
-    if user.password == password_hash
-      p "password verified!"
-    else
-      @error = "No matching log-in credentials."
-      erb :sign_in
-    end
-  end
+  def verify_password(user, new_password)
+    # p "checking password"
+    user.password == new_password
+      # p "password verified!"
+
+  #CR separate view.
+  #   else
+  #     @error = "No matching log-in credentials."
+  #     erb :sign_in
+  #   end
+   end
 
 end
 

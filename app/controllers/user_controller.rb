@@ -1,5 +1,6 @@
-before do
-  current_user
+before /^(?!\/(sessions\/*|users\/new))/ do
+  redirect '/sessions/new' unless current_user
+ #CR fixed to protect all routes
 end
 #----------- SESSIONS -----------
 #shows login page
@@ -9,16 +10,26 @@ end
 
 #processes login page
 post '/sessions' do
+   # @error = "No matching log-in credentials."
+
+ #CR just access params directly.
+  #CR clean up - using before filter and removing puts.
+
+  # user = params.fetch("user")
+  # puts "*"*100
+  # puts "THIS IS THE USER"
+  # p user
+
+
   @error = "No matching log-in credentials."
-  user = params.fetch("user")
-  puts "*"*100
-  puts "THIS IS THE USER"
-  p user
-  @user = User.find_by_email(user[:email])
-  return erb :sign_in if @user == nil
-  verify_password(@user, user[:password_hash])
-  session[:user_id] = @user.id
-  redirect "users/#{@user.id}"
+  @user = User.find_by_email(params[:user][:email])
+  # return erb :sign_in if @user == nil
+  if verify_password(@user, params[:user][:password])
+    session[:user_id] = @user.id
+    redirect "users/#{@user.id}"
+  else
+    erb :sign_in
+  end
 end
 
 #stops session
@@ -38,22 +49,24 @@ end
 
 #processes new user form
 post '/users' do
-  @user = User.create(params[:user])
+  @user = User.create(params[:user]) #CR add validations and logic to separate new and save
   session[:user_id] = @user.id
+  p "Created User #{session[:user_id]}"
   redirect '/'
 end
 
 #shows user profile
 get '/users/:id' do
-  return erb :please_log_in if @user.id != params[:id].to_i
+  #CR move to before filter
+  # return erb :please_log_in if @user.id != params[:id].to_i
   @user = User.find(params[:id])
   erb :profile
 end
 
 #edit profile
 get '/users/:id/edit' do
-  return erb :sign_in if @user == nil
-  return erb :please_log_in if @user.id != params[:id].to_i
+  # return erb :sign_in if @user == nil
+  # return erb :please_log_in if @user.id != params[:id].to_i
   @user = User.find(params[:id])
   erb :edit_user
 end
