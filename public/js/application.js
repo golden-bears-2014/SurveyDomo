@@ -15,33 +15,30 @@ var addQuestion = function(event) {
       value.name = 'q' + next_num + 'c' + i;
       i++
     }
-
   });
-
-      var new_question = $('.question-choices-template').clone();
-      $('.question-list').append(new_question.attr('class', 'question-choices'));
-
+  var new_question = $('.question-choices-template').clone();
+  $('.question-list').append(new_question.attr('class', 'question-choices'));
 }
 
 var printGraph = function(question, answers, choices){
 
-    var choice_content = [];
-    var answer_count = [];
+  var choice_content = [];
+  var answer_count = [];
 
-    for (var c in choices) {
-      choice_content.push(choices[c].content);
-      var answer_array = [];
-      for (var a in answers) {
-          if (answers[a].choice_id === choices[c].id){
-            answer_array.push(answers[a]);
-          }
-      }
-      answer_count.push(answer_array.length);
+  for (var c in choices) {
+    choice_content.push(choices[c].content);
+    var answer_array = [];
+    for (var a in answers) {
+        if (answers[a].choice_id === choices[c].id){
+          answer_array.push(answers[a]);
+        }
     }
+    answer_count.push(answer_array.length);
+  }
 
-   var graphId = "graph"+question.id;
-   $(".container").append("<div id="+graphId+" class='graph'></div><br/><br/>");
-   formatGraph(question, choice_content, answer_count);
+  var graphId = "graph"+question.id;
+  $(".container").append("<div id="+graphId+" class='graph'></div><br/><br/>");
+  formatGraph(question, choice_content, answer_count);
 
 };
 
