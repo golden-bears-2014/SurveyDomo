@@ -24,6 +24,8 @@ gem 'shotgun'
 
 gem 'faker'
 
+gem 'jasmine'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
