@@ -1,26 +1,27 @@
 $(document).ready(function() {
 
-    $(".add-question").on('click', function(event){
-      event.preventDefault();
-      // alert('Add was clicked');
-      var next_num = $('.question-choices').length + 1
-      $('.question-choices-template input:first').attr('name',"question" + next_num)
-      var i = 1;
-      $.each($('.question-choices-template').children(), function(index, value){
-        if(index > 0){
-          value.name = 'q' + next_num + 'c' + i;
-          i++
-        }
+    $(".add-question").on( 'click', function(event){
+      event.preventDefault()
+      addQuestion(event)
+    })
+});
 
-      });
+var addQuestion = function(event) {
+  var next_num = $('.question-choices').length + 1
+  $('.question-choices-template input:first').attr('name',"question" + next_num)
+  var i = 1;
+  $.each($('.question-choices-template').children(), function(index, value){
+    if(index > 0){
+      value.name = 'q' + next_num + 'c' + i;
+      i++
+    }
+
+  });
 
       var new_question = $('.question-choices-template').clone();
-      new_question.first
       $('.question-list').append(new_question.attr('class', 'question-choices'));
-    })
 
-
-})
+}
 
 var printGraph = function(question, answers, choices){
 
