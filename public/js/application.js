@@ -3,6 +3,7 @@ $(document).ready(function() {
     $(".add-question").on( 'click', function(event){
       event.preventDefault()
       addQuestion(event)
+      console.loge("A question was added to the survey form.")
     })
 });
 
